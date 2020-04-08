@@ -2,7 +2,7 @@
 This repository holds the codes and methods for the following CVPR-2020 paper:
 - [Relation-aware Global Attention for Person Re-identification](https://arxiv.org/pdf/1904.02998.pdf)
 
-We hope it will inspire more excellent works and encourage you to adopt RGA into other tasks. If you find our paper and repository useful, please consider citing our paper:
+We hope it will inspire more excellent works and the relation aware global attention bring benifits for many computer vision tasks. If you find our paper and repository useful, please consider citing our paper:
 
 ```
 @article{zhang2020relation,
@@ -14,9 +14,8 @@ We hope it will inspire more excellent works and encourage you to adopt RGA into
 ```
 
 ## Introduction
-Person re-identification (re-id) aims to match a specific person across different times, places, or cameras, which has drawn a surge of interests from both industry and academia. The challenge lies in how to extract discriminative features (for identifying the same person and distinguishing different persons) from person images where there are background clutter, diversity of poses, occlusion, etc. For this task, attention align well with its target and has been demonstrated effective. However, previous attention works do not fully exploit the correlations from a global view and ignore the global scope structural information.
 
-Inspired by the obeservation for human attention: making a global scope comparison to determine the importance. We propose to globally learn the attention for each feature node by taking a global view of the relations among the features. With the global scope relations having valuable structural (clustering-like) information, we propose to mine semantics from relations for deriving attention through a learned function. Specifically, for a feature node, we build a compact representation by stacking its pairwise relations with respect to all feature nodes as a vector and mine patterns from it for attention learning.
+In order to learn discriminative features for CNNs, we propose an effecitive attention mechanism Relation-aware Global Attention (RGA) by exploring the global scope relations for globally learning attention. Intitively, making a global scope comparison to determine the importance is more reliable than locally determining the importance. We propose to globally learn the attention for each feature node by taking a global view of the relations among the features. With the global scope relations having valuable structural (clustering-like) information, we propose to mine semantics from relations for deriving attention through a learned function. Specifically, for a feature node, we build a compact representation by stacking its pairwise relations with respect to all feature nodes as a vector and mine patterns from it for attention learning. We validate the effectiveness of RGA modules in person re-identification (re-id) task. The challenge of re-id lies in how to extract discriminative features from images where there are background clutter, diversity of poses, occlusion, etc., and attention align well with its target. Person re-id has applications such as tracking for finding lost child, visitor density analysis in retail store. 
 
 ![image](https://github.com/microsoft/Relation-Aware-Global-Attention-Networks/blob/master/diagrams/spatial_channel_RGA.png)
 
