@@ -25,7 +25,8 @@ Specifically, we design a relation-aware global attention (RGA) module which com
 ## Installation
 
 1. Git clone this repo.
-2. Intall dependencies by `pip install -r requirements.txt` (if you hope to use the same environment configuarations as we used for the results in our paper.)
+2. Intall dependencies by `pip install -r requirements.txt` (if you hope to use the same environment configuarations as we used for getting the reported results in our paper.)
+
 Sepcifically, we train the all models to get the reported results in our paper on a single NVIDIA Tesla P40 card (with 24GB GPU memory).
 
 ## ReID Dataset Preparation
