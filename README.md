@@ -15,6 +15,8 @@ We hope it will inspire more excellent works and the relation aware global atten
 
 ## Introduction
 
+In order to learn discriminative features for CNNs, we propose an effecitive attention mechanism, Relation-aware Global Attention (RGA), by exploring the global scope relations for globally learning attention. 
+
 Previous approaches typically learn attention using local convolutions, ignoring the mining of knowledge from global structure patterns. Intuitively, the affinities among spatial positions/nodes in the feature map provide clustering-like information and are helpful for inferring semantics and thus attention. In this work, we propose an effective Relation-Aware Global Attention (RGA) module which captures the global structural information for better attention learning. Specifically, for each feature position, in order to compactly grasp the structural information of global scope and local appearance information, we propose to stack the relations, i.e., its pairwise correlations/affinities with all the feature positions (e.g., in raster scan order), and the feature itself together to learn the attention with a shallow convolutional model. 
 
 We validate the effectiveness of RGA modules in person re-identification (re-id) task. The challenge of re-id lies in how to extract discriminative features from images where there are background clutter, diversity of poses, occlusion, etc., and attention align well with its target. Person re-id has applications such as tracking for finding lost child, visitor density analysis in retail store. 
