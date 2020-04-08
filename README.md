@@ -44,10 +44,10 @@ cuhk03/
 4. In default mode, we use new split protocol (767/700).
 5. *Please remember to modify the variable `DATD_DIR` in our provided bash script for specifying the path of your dataset (`/YOUR_DATASET_PATH/`) accordingly.
 
-## Pretrain Model Preparation
+## Pre-trained Model Preparation
 
-1. Create a folder named `weights/pretrain` under the root path of this repo.
-2. Download the pre-trained ResNet-50 model to `weights/pretrain` from https://download.pytorch.org/models/resnet50-19c8e357.pth.
+1. Create a folder named `weights/pre_train` under the root path of this repo.
+2. Download the pre-trained ResNet-50 model to `weights/pre_train` from https://download.pytorch.org/models/resnet50-19c8e357.pth.
 
 ## Training and Evaluation
 
