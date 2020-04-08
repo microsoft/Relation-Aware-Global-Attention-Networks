@@ -1,5 +1,9 @@
 ## Introduction
 
+This repository holds the codes and methods for the following CVPR-2020 paper:
+- [Relation-aware Global Attention for Person Re-identification](https://arxiv.org/pdf/1904.02998.pdf)
+We hope the proposed Relation-aware Global Attention bring benifits for many computer vision tasks and inspire new excellent works. 
+
 In order to learn discriminative features for CNNs, we propose an effecitive attention mechanism, Relation-aware Global Attention (RGA), by exploring the global scope relations for globally learning attention. 
 
 Previous approaches typically learn attention using local convolutions, ignoring the mining of knowledge from global structure patterns. Intuitively, the affinities among spatial positions/nodes in the feature map provide clustering-like information and are helpful for inferring semantics and thus attention. In this work, we propose an effective Relation-Aware Global Attention (RGA) module which captures the global structural information for better attention learning. Specifically, for each feature position, in order to compactly grasp the structural information of global scope and local appearance information, we propose to stack the relations, i.e., its pairwise correlations/affinities with all the feature positions (e.g., in raster scan order), and the feature itself together to learn the attention with a shallow convolutional model. 
@@ -44,11 +48,11 @@ For your convenience, we provide the bash script with our recommended hyper-para
 `bash ./scripts/run_rgasc_cuhk03.sh`
 
 
-## Description
+## Reference
 This repository holds the codes and methods for the following CVPR-2020 paper:
 - [Relation-aware Global Attention for Person Re-identification](https://arxiv.org/pdf/1904.02998.pdf)
 
-We hope the proposed Relation-aware Global Attention bring benifits for many computer vision tasks and inspire new excellent works. If you find our paper and repository useful, please cite our paper:
+If you find our paper and repository useful, please cite our paper:
 
 ```
 @article{zhang2020relation,
