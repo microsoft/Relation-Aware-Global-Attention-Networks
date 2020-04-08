@@ -25,13 +25,12 @@ Specifically, we design a relation-aware global attention (RGA) module which com
 ## Installation
 
 1. Git clone this repo.
-2. Intall dependencies by `pip install -r requirements.txt` (if you hope to use the same environment configuaration as we used for the results in our paper.)
+2. Intall dependencies by `pip install -r requirements.txt` (if you hope to use the same environment configuarations as we used for the results in our paper.)
 Sepcifically, we train the all models to get the reported results in our paper on a single NVIDIA Tesla P40 card (with 24GB GPU memory).
 
 ## ReID Dataset Preparation
-Image-reid datasets (here we use CUHK03 dataset as an example for description):
-- [CUHK03](https://www.cv-foundation.org/openaccess/content_cvpr_2014/papers/Li_DeepReID_Deep_Filter_2014_CVPR_paper.pdf) (`cuhk03`)
-The keys to use these datasets are enclosed in the parentheses. See [torchreid/datasets/\_\_init__.py](torchreid/datasets/__init__.py) for details. The data managers of image reid are implemented in [torchreid/data_manager.py](torchreid/data_manager.py).
+Image-reid datasets (here we use [CUHK03](https://www.cv-foundation.org/openaccess/content_cvpr_2014/papers/Li_DeepReID_Deep_Filter_2014_CVPR_paper.pdf) dataset as an example for description):
+
 1. Create a folder named `cuhk03/` under `/YOUR_DATASET_PATH/`.
 2. Download dataset to `data/cuhk03/` from http://www.ee.cuhk.edu.hk/~xgwang/CUHK_identification.html and extract `cuhk03_release.zip`, so you will have `data/cuhk03/cuhk03_release`.
 3. Download new split from [person-re-ranking](https://github.com/zhunzhong07/person-re-ranking/tree/master/evaluation/data/CUHK03). What you need are `cuhk03_new_protocol_config_detected.mat` and `cuhk03_new_protocol_config_labeled.mat`. Put these two mat files under `data/cuhk03`. Finally, the data structure would look like
@@ -43,7 +42,7 @@ cuhk03/
     ...
 ```
 4. In default mode, we use new split protocol (767/700).
-5. *Please remember to modify the variable `DATD_DIR` in our provided bash script for specifying the path of your dataset accordingly.)
+5. *Please remember to modify the variable `DATD_DIR` in our provided bash script for specifying the path of your dataset accordingly.
 
 ## Pretrain Model Preparation
 
