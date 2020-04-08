@@ -25,9 +25,9 @@ Specifically, we design a relation-aware global attention (RGA) module which com
 ## Installation
 
 1. Git clone this repo.
-2. Intall dependencies by `pip install -r requirements.txt` (if you hope to use the same environment configuarations as we used for getting the reported results in our paper.)
+2. Intall dependencies by `pip install -r requirements.txt` (If you hope to use the same environment configuarations as we used for getting the reported results in our paper.)
 
-Sepcifically, we train the all models to get the reported results in our paper on a single NVIDIA Tesla P40 card (with 24GB GPU memory).
+Sepcifically, we trained all models in our paper on a single NVIDIA Tesla P40 card (with 24GB GPU memory).
 
 ## ReID Dataset Preparation
 Image-reid datasets (here we use [CUHK03](https://www.cv-foundation.org/openaccess/content_cvpr_2014/papers/Li_DeepReID_Deep_Filter_2014_CVPR_paper.pdf) dataset as an example for description):
