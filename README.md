@@ -1,18 +1,3 @@
-## Description
-This repository holds the codes and methods for the following CVPR-2020 paper:
-- [Relation-aware Global Attention for Person Re-identification](https://arxiv.org/pdf/1904.02998.pdf)
-
-We hope the proposed Relation-aware Global Attention bring benifits for many computer vision tasks and inspire new excellent works. If you find our paper and repository useful, please cite our paper:
-
-```
-@article{zhang2020relation,
-  title={Relation-Aware Global Attention for Person Re-identification},
-  author={Zhang, Zhizheng and Lan, Cuiling and Zeng, Wenjun and Jin, Xin and Chen, Zhibo},
-  journal={CVPR},
-  year={2020}
-}
-```
-
 ## Introduction
 
 In order to learn discriminative features for CNNs, we propose an effecitive attention mechanism, Relation-aware Global Attention (RGA), by exploring the global scope relations for globally learning attention. 
@@ -57,6 +42,23 @@ cuhk03/
 For your convenience, we provide the bash script with our recommended hyper-parameters settings. Please `cd` to the root path of this repo and run:
 
 `bash ./scripts/run_rgasc_cuhk03.sh`
+
+
+## Description
+This repository holds the codes and methods for the following CVPR-2020 paper:
+- [Relation-aware Global Attention for Person Re-identification](https://arxiv.org/pdf/1904.02998.pdf)
+
+We hope the proposed Relation-aware Global Attention bring benifits for many computer vision tasks and inspire new excellent works. If you find our paper and repository useful, please cite our paper:
+
+```
+@article{zhang2020relation,
+  title={Relation-Aware Global Attention for Person Re-identification},
+  author={Zhang, Zhizheng and Lan, Cuiling and Zeng, Wenjun and Jin, Xin and Chen, Zhibo},
+  journal={CVPR},
+  year={2020}
+}
+```
+
 
 ## Contributing
 
