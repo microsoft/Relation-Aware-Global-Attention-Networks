@@ -38,8 +38,8 @@ class CUHK03(object):
         split_id (int): split index (default: 0)
         cuhk03_labeled (bool): whether to load labeled images; if false, detected images are loaded (default: False)
     """
-    # dataset_dir = 'cuhk03'
-    dataset_dir = 'CUHK03_New'
+    dataset_dir = 'cuhk03'
+    # dataset_dir = 'CUHK03_New'
 
     def __init__(self, root='data', split_id=0, cuhk03_labeled=False, cuhk03_classic_split=False, verbose=True, **kwargs):
         super(CUHK03, self).__init__()
