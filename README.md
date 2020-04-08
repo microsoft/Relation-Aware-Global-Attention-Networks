@@ -22,7 +22,7 @@ Previous approaches typically learn attention using local convolutions, ignoring
 We validate the effectiveness of RGA modules in person re-identification (re-id) task. The challenge of re-id lies in how to extract discriminative features from images where there are background clutter, diversity of poses, occlusion, etc., and attention align well with its target. Person re-id has applications of finding lost child, and the visitor density analysis in retail store. 
 
 ![image](https://github.com/microsoft/Relation-Aware-Global-Attention-Networks/blob/master/diagrams/spatial_channel_RGA.png)
-Figure 1: Diagram of our proposed Spatial Relation-aware Global Attention (RGA-S) and Channel Relation-aware Global Attention (RGA-C). When computing the attention at a feature position, in order to grasp information of global scope, we stack the pairwise relation items, {\it{i.e.}}, its correlations/affinities with all the feature positions, and the unary item, {\it{i.e.}}, the feature of this position, for learning the attention with convolutional operations.
+Figure 1: Diagram of our proposed Spatial Relation-aware Global Attention (RGA-S) and Channel Relation-aware Global Attention (RGA-C). When computing the attention at a feature position, in order to grasp information of global scope, we stack the pairwise relation items, i.e., its correlations/affinities with all the feature positions, and the unary item, i.e., the feature of this position, for learning the attention with convolutional operations.
 
 ## Installation
 
