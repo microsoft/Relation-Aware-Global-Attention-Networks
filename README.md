@@ -2,6 +2,7 @@
 
 This repository holds the codes and methods for the following CVPR-2020 paper:
 - [Relation-aware Global Attention for Person Re-identification](https://arxiv.org/pdf/1904.02998.pdf)
+
 We hope the proposed Relation-aware Global Attention bring benifits for many computer vision tasks and inspire new excellent works. 
 
 In order to learn discriminative features for CNNs, we propose an effecitive attention mechanism, Relation-aware Global Attention (RGA), by exploring the global scope relations for globally learning attention. 
