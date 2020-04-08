@@ -32,7 +32,7 @@ Sepcifically, we train the all models to get the reported results in our paper o
 Image-reid datasets (here we use [CUHK03](https://www.cv-foundation.org/openaccess/content_cvpr_2014/papers/Li_DeepReID_Deep_Filter_2014_CVPR_paper.pdf) dataset as an example for description):
 
 1. Create a folder named `cuhk03/` under `/YOUR_DATASET_PATH/`.
-2. Download dataset to `data/cuhk03/` from http://www.ee.cuhk.edu.hk/~xgwang/CUHK_identification.html and extract `cuhk03_release.zip`, so you will have `data/cuhk03/cuhk03_release`.
+2. Download dataset to `/YOUR_DATASET_PATH/cuhk03/` from http://www.ee.cuhk.edu.hk/~xgwang/CUHK_identification.html and extract `cuhk03_release.zip`, so you will have `/YOUR_DATASET_PATH/cuhk03/cuhk03_release`.
 3. Download new split from [person-re-ranking](https://github.com/zhunzhong07/person-re-ranking/tree/master/evaluation/data/CUHK03). What you need are `cuhk03_new_protocol_config_detected.mat` and `cuhk03_new_protocol_config_labeled.mat`. Put these two mat files under `data/cuhk03`. Finally, the data structure would look like
 ```
 cuhk03/
@@ -42,7 +42,7 @@ cuhk03/
     ...
 ```
 4. In default mode, we use new split protocol (767/700).
-5. *Please remember to modify the variable `DATD_DIR` in our provided bash script for specifying the path of your dataset accordingly.
+5. *Please remember to modify the variable `DATD_DIR` in our provided bash script for specifying the path of your dataset (`/YOUR_DATASET_PATH/`) accordingly.
 
 ## Pretrain Model Preparation
 
