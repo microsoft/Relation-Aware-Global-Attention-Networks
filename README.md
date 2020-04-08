@@ -42,7 +42,7 @@ cuhk03/
     cuhk03_new_protocol_config_labeled.mat
     ...
 ```
-4. Use `-d cuhk03` when running the training code. In default mode, we use new split (767/700). In addition, here we use both `labeled` modes.
+4. In default mode, we use new split protocol (767/700).
 5. *Please remember to modify the variable `DATD_DIR` in our provided bash script for specifying the path of your dataset accordingly.)
 
 ## Pretrain Model Preparation
@@ -53,9 +53,10 @@ cuhk03/
 ## Training and Evaluation
 
 For your convenience, we provide the bash script with our recommended hyper-parameters settings. Please `cd` to the root path of this repo and run:
-bash ./scripts/run_rgasc_cuhk03.sh
 
-# Contributing
+`bash ./scripts/run_rgasc_cuhk03.sh`
+
+## Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
 Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
