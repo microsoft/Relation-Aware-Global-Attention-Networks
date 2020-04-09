@@ -3,7 +3,7 @@
 ## Introduction
 
 Attention mechanisms aim to learn discriminative features and have been demonstrated useful in many vision tasks. However, many previous works learn the attention using local convolutions with small size receptive fields, ignoring the mining of knowledge from global structure patterns. 
-Intuitively, to accurately determine the level of importance of one node, it is better to know the information of all the nodes (for comparison). Motivated by this, we propose an effective Relation-Aware Global Attention (RGA) module which captures the global structural information for better attention learning. Specifically, for each feature position, in order to compactly grasp the structural information of global scope and local appearance information, we propose to stack the relations, i.e., its pairwise correlations/affinities with all the feature positions (e.g., in raster scan order), and the feature itself together to learn the attention with a shallow convolutional model.  
+Intuitively, to accurately determine the level of importance of one feature node, it is better to know the information of all the feature nodes (for comparison). Motivated by this, we propose an effective Relation-Aware Global Attention (RGA) module which captures the global structural information for better attention learning. Specifically, for each feature position, in order to compactly grasp the structural information of global scope and local appearance information, we propose to stack the relations, i.e., its pairwise correlations/affinities with all the feature positions (e.g., in raster scan order), and the feature itself together to learn the attention with a shallow convolutional model.  
 
 We validate the effectiveness of RGA modules in person re-identification (re-id) task. Our implementation in person re-id is target for the applications of finding lost child, and the visitor density analysis in retail store. 
 
@@ -14,16 +14,14 @@ Figure 1: Diagram of our proposed Spatial Relation-aware Global Attention (RGA-S
 ## Installation
 
 1. Git clone this repo.
-2. Intall dependencies by `pip install -r requirements.txt` (If you hope to use the same environment configuarations as we used for getting the reported results in our paper.)
-
-Sepcifically, we trained all models in our paper on a single NVIDIA Tesla P40 card (with 24GB GPU memory).
+2. Intall dependencies by `pip install -r requirements.txt` to have the same environment configuarations as we used.
+   Note that we trained all models on a single NVIDIA Tesla P40 card (with 24GB GPU memory).
 
 ## ReID Dataset Preparation
-Image-reid datasets (here we use [CUHK03](https://www.cv-foundation.org/openaccess/content_cvpr_2014/papers/Li_DeepReID_Deep_Filter_2014_CVPR_paper.pdf) dataset as an example for description):
+Here we use [CUHK03](https://www.cv-foundation.org/openaccess/content_cvpr_2014/papers/Li_DeepReID_Deep_Filter_2014_CVPR_paper.pdf) dataset as the example for description.
 
-1. Create a folder named `cuhk03/` under `/YOUR_DATASET_PATH/`.
-2. Download dataset to `/YOUR_DATASET_PATH/cuhk03/` from http://www.ee.cuhk.edu.hk/~xgwang/CUHK_identification.html and extract `cuhk03_release.zip`, so you will have `/YOUR_DATASET_PATH/cuhk03/cuhk03_release`.
-3. Download new split from [person-re-ranking](https://github.com/zhunzhong07/person-re-ranking/tree/master/evaluation/data/CUHK03). What you need are `cuhk03_new_protocol_config_detected.mat` and `cuhk03_new_protocol_config_labeled.mat`. Put these two mat files under `data/cuhk03`. Finally, the data structure would look like
+1. Create a folder named `cuhk03/` under `/YOUR_DATASET_PATH/`. Download dataset to `/YOUR_DATASET_PATH/cuhk03/` from http://www.ee.cuhk.edu.hk/~xgwang/CUHK_identification.html and extract `cuhk03_release.zip`. Then you will have `/YOUR_DATASET_PATH/cuhk03/cuhk03_release`.
+2. Download new split from [person-re-ranking](https://github.com/zhunzhong07/person-re-ranking/tree/master/evaluation/data/CUHK03). What you need are `cuhk03_new_protocol_config_detected.mat` and `cuhk03_new_protocol_config_labeled.mat`. Put these two mat files under `data/cuhk03`. Finally, the data structure will look like
 ```
 cuhk03/
     cuhk03_release/
@@ -31,8 +29,8 @@ cuhk03/
     cuhk03_new_protocol_config_labeled.mat
     ...
 ```
-4. In default mode, we use new split protocol (767/700).
-5. *Please remember to modify the variable `DATD_DIR` in our provided bash script for specifying the path of your dataset (`/YOUR_DATASET_PATH/`) accordingly.
+In default mode, we use new split protocol (767/700).
+*Please remember to modify the variable `DATD_DIR` in our provided bash script for specifying the path of your dataset (`/YOUR_DATASET_PATH/`) accordingly.
 
 ## Pre-trained Model Preparation
 
@@ -52,7 +50,7 @@ This technique applied on person re-identification task had been accepted by CVP
 - [Relation-aware Global Attention for Person Re-identification](https://arxiv.org/pdf/1904.02998.pdf)
 
 
-If you find our paper and repository useful, please cite our paper:
+If you find this technique and repository useful, please cite our paper:
 
 ```
 @article{zhang2020relation,
