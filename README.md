@@ -16,7 +16,7 @@ Figure 1: Diagram of our proposed Spatial Relation-aware Global Attention (RGA-S
 1. Git clone this repo.
 2. Install dependencies by pip install -r requirements.txt to have the same environment configuration as we used. Note that we trained all models on a single NVIDIA Tesla P40 card.
 
-## ReID Dataset Preparation
+## Re-ID Dataset Preparation
 Here we use [CUHK03](https://www.cv-foundation.org/openaccess/content_cvpr_2014/papers/Li_DeepReID_Deep_Filter_2014_CVPR_paper.pdf) dataset as the example for description.
 
 1. Create a folder named `cuhk03/` under `/YOUR_DATASET_PATH/`. Download dataset to `/YOUR_DATASET_PATH/cuhk03/` from http://www.ee.cuhk.edu.hk/~xgwang/CUHK_identification.html and extract `cuhk03_release.zip`. Then you will have `/YOUR_DATASET_PATH/cuhk03/cuhk03_release`.
