@@ -50,8 +50,6 @@ For your convenience, we provide the bash script with our recommended hyper-para
 
 
 ## Reference
-This repository holds the codes and methods for the following CVPR-2020 paper:
-- [Relation-aware Global Attention for Person Re-identification](https://arxiv.org/pdf/1904.02998.pdf)
 
 If you find our paper and repository useful, please cite our paper:
 
