@@ -14,8 +14,7 @@ Figure 1: Diagram of our proposed Spatial Relation-aware Global Attention (RGA-S
 ## Installation
 
 1. Git clone this repo.
-2. Intall dependencies by `pip install -r requirements.txt` to have the same environment configuarations as we used.
-   Note that we trained all models on a single NVIDIA Tesla P40 card (with 24GB GPU memory).
+2. Install dependencies by pip install -r requirements.txt to have the same environment configuration as we used. Note that we trained all models on a single NVIDIA Tesla P40 card.
 
 ## ReID Dataset Preparation
 Here we use [CUHK03](https://www.cv-foundation.org/openaccess/content_cvpr_2014/papers/Li_DeepReID_Deep_Filter_2014_CVPR_paper.pdf) dataset as the example for description.
@@ -30,6 +29,7 @@ cuhk03/
     ...
 ```
 In default mode, we use new split protocol (767/700).
+
 *Please remember to modify the variable `DATD_DIR` in our provided bash script for specifying the path of your dataset (`/YOUR_DATASET_PATH/`) accordingly.
 
 ## Pre-trained Model Preparation
