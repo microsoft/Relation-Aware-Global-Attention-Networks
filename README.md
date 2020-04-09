@@ -1,15 +1,15 @@
+# Relation-Aware Global Attention (RGA)
+
 ## Introduction
 
-We hope the proposed Relation-aware Global Attention bring benefits for many computer vision tasks and inspire more excellent works.
+Attention mechanisms aim to learn discriminative features. They have been demonstrated useful in many vision tasks. However, many previous works learn the attention using local convolutions with small size receptive fields, ignoring the mining of knowledge from global structure patterns. 
+Intuitively, to accurately determine the level of importance of one node, it is better to know the information of all the nodes (for comparison). Motivated by this, we propose an effective Relation-Aware Global Attention (RGA) module which captures the global structural information for better attention learning. Specifically, for each feature position, in order to compactly grasp the structural information of global scope and local appearance information, we propose to stack the relations, i.e., its pairwise correlations/affinities with all the feature positions (e.g., in raster scan order), and the feature itself together to learn the attention with a shallow convolutional model.  
 
-In order to learn discriminative features for CNNs, we propose an effective attention mechanism, Relation-aware Global Attention (RGA), by exploring the global scope relations for globally learning attention.
-
-Previous approaches typically learn attention using local convolutions, ignoring the mining of knowledge from global structure patterns. Intuitively, the affinities among spatial positions/nodes in the feature map provide clustering-like information and are helpful for inferring semantics and thus attention. In this work, we propose an effective Relation-Aware Global Attention (RGA) module which captures the global structural information for better attention learning. Specifically, for each feature position, in order to compactly grasp the structural information of global scope and local appearance information, we propose to stack the relations, i.e., its pairwise correlations/affinities with all the feature positions (e.g., in raster scan order), and the feature itself together to learn the attention with a shallow convolutional model. 
-
-We validate the effectiveness of RGA modules in person re-identification (re-id) task. Person re-id has applications of finding lost child, and the visitor density analysis in retail store. The challenge of re-id lies in how to extract discriminative features from images where there are background clutter, diversity of poses, occlusion, etc., and attention aligns well with its target. 
+We validate the effectiveness of RGA modules in person re-identification (re-id) task. Our implementation in person re-id is target for the applications of finding lost child, and the visitor density analysis in retail store. 
 
 ![image](https://github.com/microsoft/Relation-Aware-Global-Attention-Networks/blob/master/diagrams/spatial_channel_RGA.png)
-Figure 1: Diagram of our proposed Spatial Relation-aware Global Attention (RGA-S) and Channel Relation-aware Global Attention (RGA-C). When computing the attention at a feature position, in order to grasp information of global scope, we stack the pairwise relation items, i.e., its correlations/affinities with all the feature positions, and the unary item, i.e., the feature of this position, for learning the attention with convolutional operations.
+Figure 1: Diagram of our proposed Spatial Relation-aware Global Attention (RGA-S) and Channel Relation-aware Global Attention (RGA-C). When computing the attention at a feature position, in order to grasp information of global scope, we stack the pairwise relation items, i.e., its correlations/affinities with all the feature positions, and the unary item, i.e., the feature of this position, for learning the attention with convolutional operations. For each feature node, such compact global relation representation contains both affinity and location information and is helpful for learning semantics and infer attention.
+
 
 ## Installation
 
@@ -50,6 +50,8 @@ For your convenience, we provide the bash script with our recommended hyper-para
 
 This technique applied on person re-identification task had been accepted by CVPR'20. 
 - [Relation-aware Global Attention for Person Re-identification](https://arxiv.org/pdf/1904.02998.pdf)
+
+We hope this technique of Relation-aware Global Attention to bring benefits for more computer vision tasks and inspire more works.
 
 If you find our paper and repository useful, please cite our paper:
 
