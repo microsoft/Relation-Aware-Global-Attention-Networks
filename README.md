@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Attention mechanisms aim to learn discriminative features. They have been demonstrated useful in many vision tasks. However, many previous works learn the attention using local convolutions with small size receptive fields, ignoring the mining of knowledge from global structure patterns. 
+Attention mechanisms aim to learn discriminative features and have been demonstrated useful in many vision tasks. However, many previous works learn the attention using local convolutions with small size receptive fields, ignoring the mining of knowledge from global structure patterns. 
 Intuitively, to accurately determine the level of importance of one node, it is better to know the information of all the nodes (for comparison). Motivated by this, we propose an effective Relation-Aware Global Attention (RGA) module which captures the global structural information for better attention learning. Specifically, for each feature position, in order to compactly grasp the structural information of global scope and local appearance information, we propose to stack the relations, i.e., its pairwise correlations/affinities with all the feature positions (e.g., in raster scan order), and the feature itself together to learn the attention with a shallow convolutional model.  
 
 We validate the effectiveness of RGA modules in person re-identification (re-id) task. Our implementation in person re-id is target for the applications of finding lost child, and the visitor density analysis in retail store. 
