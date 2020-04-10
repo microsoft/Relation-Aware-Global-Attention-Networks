@@ -12,7 +12,7 @@ SEED=16
 START_SAVE=320
 BRANCH_NAME="rgasc"
 
-DATA_DIR="/datasets/PersonReID"
+DATA_DIR="/YOUR_DATASET_PATH"
 LOG_DIR="./logs/RGA-SC/cuhk03labeled_b64f2048"
 LOG_FILE="${LOG_DIR}/train_log.text"
 
