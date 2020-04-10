@@ -33,7 +33,7 @@ cuhk03/
 1. Create a folder named `weights/pre_train` under the root path of this repo.
 2. Download the pre-trained ResNet-50 model from https://download.pytorch.org/models/resnet50-19c8e357.pth and place it under `weights/pre_train`.
 
-## Training and Evaluation
+## Train
 
 For your convenience, we provide the bash script with our recommended settings of hyper-parameters. Please `cd` to the root path of this repo and run:
 
