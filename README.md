@@ -28,7 +28,7 @@ cuhk03/
     ...
 ```
 
-*Please modify the variable `DATD_DIR` in our provided bash script for specifying the path of your dataset (`/YOUR_DATASET_PATH/`) accordingly.
+*Please modify the variable `DATA_DIR` in our provided bash script for specifying the path of your dataset (`/YOUR_DATASET_PATH/`) accordingly.
 
 ## Pre-trained Model Preparation
 
