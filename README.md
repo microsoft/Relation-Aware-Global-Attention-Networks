@@ -42,11 +42,12 @@ For your convenience, we provide the bash script with our recommended settings o
 
 ## Reference
 
-The work with this technique of Relation-aware Global Attention (RGA) applied on person re-identification task has been accepted by CVPR'20. We hope that this technique will bring benefits for more computer vision related applications and inspire more works.
+The work with this technique of Relation-aware Global Attention (RGA) applied on person re-identification task has been accepted by CVPR'20. 
 
 - [Relation-aware Global Attention for Person Re-identification](https://arxiv.org/pdf/1904.02998.pdf)
 
-If you find this technique and repository useful, please cite the paper:
+We hope that this technique will bring benefits for more computer vision related applications and inspire more works.
+If you find this technique and repository useful, please cite the paper. Thanks!
 
 ```
 @article{zhang2020relation,
