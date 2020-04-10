@@ -12,7 +12,7 @@ SEED=16
 START_SAVE=320
 BRANCH_NAME="rgasc"
 
-DATD_DIR="/datasets/PersonReID"
+DATA_DIR="/datasets/PersonReID"
 LOG_DIR="./logs/RGA-SC/cuhk03labeled_b64f2048"
 LOG_FILE="${LOG_DIR}/train_log.text"
 
@@ -40,7 +40,7 @@ CUDA_VISIBLE_DEVICES=4,5 python main_imgreid.py \
 	--features ${NUM_FEATURE} \
 	--start_save ${START_SAVE} \
 	--branch_name ${BRANCH_NAME} \
-	--data-dir ${DATD_DIR} \
+	--data-dir ${DATA_DIR} \
 	--logs-dir ${LOG_DIR} \
 	> ${LOG_FILE} 2>&1
 
@@ -61,7 +61,7 @@ CUDA_VISIBLE_DEVICES=4,5 python main_imgreid.py \
 	--features ${NUM_FEATURE} \
 	--start_save ${START_SAVE} \
 	--branch_name ${BRANCH_NAME} \
-	--data-dir ${DATD_DIR} \
+	--data-dir ${DATA_DIR} \
 	--logs-dir ${LOG_DIR} \
 	--evaluate \
 	--resume ${WEIGHT_FILE} \
