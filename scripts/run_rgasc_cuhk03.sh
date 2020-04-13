@@ -14,7 +14,7 @@ BRANCH_NAME="rgasc"
 
 DATA_DIR="/YOUR_DATASET_PATH"
 LOG_DIR="./logs/RGA-SC/cuhk03labeled_b64f2048"
-LOG_FILE="${LOG_DIR}/train_log.text"
+LOG_FILE="${LOG_DIR}/train_log.txt"
 
 if [ -d ${LOG_DIR} ]; then
 	rm -r ${LOG_DIR}
