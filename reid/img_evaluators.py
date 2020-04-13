@@ -8,7 +8,6 @@ from collections import OrderedDict, Iterable, defaultdict
 
 from .utils import to_torch
 from .utils.meters import AverageMeter
-from .utils.visualization import get_rank_list
 from .evaluation_metrics import cmc, mean_ap
 
 import time
