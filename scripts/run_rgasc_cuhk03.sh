@@ -26,7 +26,7 @@ if [ ! -d ${LOG_DIR} ]; then
 fi
 
 echo "Begin to train."
-CUDA_VISIBLE_DEVICES=1,2 python main_imgreid.py \
+CUDA_VISIBLE_DEVICES=2,3, python main_imgreid.py \
 	-a ${NAME_MODEL} \
 	-b ${BATCH_SIZE} \
 	-d ${NAME_DATA} \
@@ -47,7 +47,7 @@ CUDA_VISIBLE_DEVICES=1,2 python main_imgreid.py \
 echo "Begin to test."
 WEIGHT_FILE="${LOG_DIR}/checkpoint_600.pth.tar"
 LOG_FILE_TEST="${LOG_DIR}/eval_600.txt"
-CUDA_VISIBLE_DEVICES=1,2 python main_imgreid.py \
+CUDA_VISIBLE_DEVICES=2,3 python main_imgreid.py \
 	-a ${NAME_MODEL} \
 	-b ${BATCH_SIZE} \
 	-d ${NAME_DATA} \
