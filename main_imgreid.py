@@ -13,7 +13,7 @@ import torch
 from torch import nn
 from torch.backends import cudnn
 from torch.utils.data import DataLoader
-from tensorboardX import SummaryWriter
+from torch.utils.tensorboard import SummaryWriter
 from datetime import datetime
 
 from reid import data_manager
@@ -95,17 +95,17 @@ def main(args):
 		get_data(args.dataset, args.split, args.data_dir, args.height,
 				args.width, args.batch_size, args.num_instances, args.workers,
 				args.combine_trainval, args.rerank)
-	
+
 	## Summary Writer
 	if not args.evaluate:
 		TIMESTAMP = "{0:%Y-%m-%dT%H-%M-%S/}".format(datetime.now())
 		summary_writer = SummaryWriter(osp.join(args.logs_dir, 'tensorboard_log'+TIMESTAMP))
 	else:
 		summary_writer = None
-		
+
 	## Create model
-	model = models.create(args.arch, pretrained=True, num_feat=args.features, 
-				height=args.height, width=args.width, dropout=args.dropout, 
+	model = models.create(args.arch, pretrained=True, num_feat=args.features,
+				height=args.height, width=args.width, dropout=args.dropout,
 				num_classes=num_classes, branch_name=args.branch_name)
 
 	## Load from checkpoint
@@ -124,8 +124,8 @@ def main(args):
 	# test/evaluate the model
 	if args.evaluate:
 		feats_list = ['feat_', 'feat']
-		evaluator.eval_worerank(query_loader, gallery_loader, dataset.query, dataset.gallery, 
-			metric=['cosine'], 
+		evaluator.eval_worerank(query_loader, gallery_loader, dataset.query, dataset.gallery,
+			metric=['cosine'],
 			types_list=feats_list)
 		return
 
@@ -141,7 +141,7 @@ def main(args):
 	if hasattr(model.module, 'backbone'):
 		base_param_ids = set(map(id, model.module.backbone.parameters()))
 		new_params = [p for p in model.parameters() if
-					  id(p) not in base_param_ids]   
+					  id(p) not in base_param_ids]
 		param_groups = [
 			{'params': filter(lambda p: p.requires_grad,model.module.backbone.parameters()), 'lr_mult': 1.0},
 			{'params': filter(lambda p: p.requires_grad,new_params), 'lr_mult': 1.0}]
@@ -165,7 +165,7 @@ def main(args):
 	lr_scheduler = LRScheduler(base_lr=0.0008, step=[80, 120, 160, 200, 240, 280, 320, 360],
 							factor=0.5, warmup_epoch=20,
 							warmup_begin_lr=0.000008)
-	
+
 	## Start training
 	for epoch in range(start_epoch, args.epochs):
 		lr = lr_scheduler.update(epoch)
@@ -191,7 +191,7 @@ if __name__ == '__main__':
 			return False
 		else:
 			raise argparse.ArgumentTypeError('Unsupported value encountered.')
-			
+
 	parser = argparse.ArgumentParser(description="Softmax loss classification")
 	# data
 	parser.add_argument('-d', '--dataset', type=str, default='cuhk03')
@@ -253,6 +253,6 @@ if __name__ == '__main__':
 						default='/home/datasets')
 	parser.add_argument('--logs-dir', type=str, metavar='PATH',
 						default=osp.join(working_dir, 'logs'))
-	parser.add_argument('--logs-file', type=str, metavar='PATH', 
+	parser.add_argument('--logs-file', type=str, metavar='PATH',
 						default='log.txt')
 	main(parser.parse_args())

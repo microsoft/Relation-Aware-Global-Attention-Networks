@@ -12,7 +12,7 @@ SEED=16
 START_SAVE=320
 BRANCH_NAME="rgasc"
 
-DATA_DIR="/YOUR_DATASET_PATH"
+DATA_DIR="${HOME}/data"
 LOG_DIR="./logs/RGA-SC/cuhk03labeled_b64f2048"
 LOG_FILE="${LOG_DIR}/train_log.txt"
 
@@ -26,7 +26,7 @@ if [ ! -d ${LOG_DIR} ]; then
 fi
 
 echo "Begin to train."
-CUDA_VISIBLE_DEVICES=4,5 python main_imgreid.py \
+CUDA_VISIBLE_DEVICES=1,2 python main_imgreid.py \
 	-a ${NAME_MODEL} \
 	-b ${BATCH_SIZE} \
 	-d ${NAME_DATA} \
@@ -47,7 +47,7 @@ CUDA_VISIBLE_DEVICES=4,5 python main_imgreid.py \
 echo "Begin to test."
 WEIGHT_FILE="${LOG_DIR}/checkpoint_600.pth.tar"
 LOG_FILE_TEST="${LOG_DIR}/eval_600.txt"
-CUDA_VISIBLE_DEVICES=4,5 python main_imgreid.py \
+CUDA_VISIBLE_DEVICES=1,2 python main_imgreid.py \
 	-a ${NAME_MODEL} \
 	-b ${BATCH_SIZE} \
 	-d ${NAME_DATA} \
