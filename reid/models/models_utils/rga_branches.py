@@ -12,13 +12,11 @@ import os
 sys.path.append(os.path.dirname(__file__))
 
 import torch
-import torch as th
 from torch import nn
-from torch.autograd import Variable
+from torch.utils import model_zoo
 
 from rga_modules import RGA_Module
 
-WEIGHT_PATH = os.path.join(os.path.dirname(__file__), '../..')+'/weights/pre_train/resnet50-19c8e357.pth'
 
 def weights_init_kaiming(m):
 	classname = m.__class__.__name__
@@ -44,6 +42,23 @@ def weights_init_fc(m):
 		if m.affine:
 			nn.init.normal_(m.weight, 1.0, 0.02)
 			nn.init.constant_(m.bias, 0.0)
+
+
+
+def init_pretrained_weights(model, model_url):
+    """Initializes model with pretrained weights.
+
+    Layers that don't match with pretrained layers in name or size are kept unchanged.
+    """
+    pretrain_dict = model_zoo.load_url(model_url)
+    model_dict = model.state_dict()
+    pretrain_dict = {
+        k: v
+        for k, v in pretrain_dict.items()
+        if k in model_dict and model_dict[k].size() == v.size()
+    }
+    model_dict.update(pretrain_dict)
+    model.load_state_dict(model_dict)
 
 
 class Bottleneck(nn.Module):
@@ -86,9 +101,9 @@ class Bottleneck(nn.Module):
 
 
 class RGA_Branch(nn.Module):
-	def __init__(self, pretrained=True, last_stride=1, block=Bottleneck, layers=[3, 4, 6, 3],
-		spa_on=True, cha_on=True, s_ratio=8, c_ratio=8, d_ratio=8, height=256, width=128,  
-		model_path=WEIGHT_PATH):
+	def __init__(self, last_stride=1, block=Bottleneck, layers=[3, 4, 6, 3],
+                spa_on=True, cha_on=True, s_ratio=8, c_ratio=8, d_ratio=8, height=256, width=128,
+                ):
 		super(RGA_Branch, self).__init__()
 
 		self.in_channels = 64
@@ -112,15 +127,7 @@ class RGA_Branch(nn.Module):
 								cha_ratio=c_ratio, spa_ratio=s_ratio, down_ratio=d_ratio)
 		self.rga_att4 = RGA_Module(2048, (height//16)*(width//16), use_spatial=spa_on, use_channel=cha_on,
 								cha_ratio=c_ratio, spa_ratio=s_ratio, down_ratio=d_ratio)
-		
-		# Load the pre-trained model weights
-		if pretrained:
-			self.load_specific_param(self.conv1.state_dict(), 'conv1', model_path)
-			self.load_specific_param(self.bn1.state_dict(), 'bn1', model_path)
-			self.load_partial_param(self.layer1.state_dict(), 1, model_path)
-			self.load_partial_param(self.layer2.state_dict(), 2, model_path)
-			self.load_partial_param(self.layer3.state_dict(), 3, model_path)
-			self.load_partial_param(self.layer4.state_dict(), 4, model_path)
+
 
 	def _make_layer(self, block, channels, blocks, stride=1):
 		downsample = None
@@ -139,20 +146,6 @@ class RGA_Branch(nn.Module):
 
 		return nn.Sequential(*layers)
 
-	def load_partial_param(self, state_dict, model_index, model_path):
-		param_dict = torch.load(model_path)
-		for i in state_dict:
-			key = 'layer{}.'.format(model_index)+i
-			state_dict[i].copy_(param_dict[key])
-		del param_dict
-
-	def load_specific_param(self, state_dict, param_name, model_path):
-		param_dict = torch.load(model_path)
-		for i in state_dict:
-			key = param_name + '.' + i
-			state_dict[i].copy_(param_dict[key])
-		del param_dict
-
 	def forward(self, x):
 		x = self.conv1(x)
 		x = self.bn1(x)
@@ -163,7 +156,7 @@ class RGA_Branch(nn.Module):
 
 		x = self.layer2(x)
 		x = self.rga_att2(x)
-		
+
 		x = self.layer3(x)
 		x = self.rga_att3(x)
 
@@ -171,4 +164,4 @@ class RGA_Branch(nn.Module):
 		x = self.rga_att4(x)
 
 		return x
-		
+

@@ -13,7 +13,7 @@ import os.path as osp
 from scipy.io import loadmat
 import numpy as np
 import h5py
-from scipy.misc import imsave
+import imageio
 
 from ..utils.osutils import mkdir_if_missing
 from ..utils.serialization import write_json, read_json
@@ -27,7 +27,7 @@ class CUHK03(object):
     Li et al. DeepReID: Deep Filter Pairing Neural Network for Person Re-identification. CVPR 2014.
 
     URL: http://www.ee.cuhk.edu.hk/~xgwang/CUHK_identification.html#!
-    
+
     Dataset statistics:
     # identities: 1360
     # images: 13164
@@ -46,16 +46,16 @@ class CUHK03(object):
         self.dataset_dir = osp.join(root, self.dataset_dir)
         self.data_dir = osp.join(self.dataset_dir, 'cuhk03_release')
         self.raw_mat_path = osp.join(self.data_dir, 'cuhk-03.mat')
-        
+
         self.imgs_detected_dir = osp.join(self.dataset_dir, 'images_detected')
         self.imgs_labeled_dir = osp.join(self.dataset_dir, 'images_labeled')
-        
+
         self.split_classic_det_json_path = osp.join(self.dataset_dir, 'splits_classic_detected.json')
         self.split_classic_lab_json_path = osp.join(self.dataset_dir, 'splits_classic_labeled.json')
-        
+
         self.split_new_det_json_path = osp.join(self.dataset_dir, 'splits_new_detected.json')
         self.split_new_lab_json_path = osp.join(self.dataset_dir, 'splits_new_labeled.json')
-        
+
         self.split_new_det_mat_path = osp.join(self.dataset_dir, 'cuhk03_new_protocol_config_detected.mat')
         self.split_new_lab_mat_path = osp.join(self.dataset_dir, 'cuhk03_new_protocol_config_labeled.mat')
 
@@ -161,7 +161,7 @@ class CUHK03(object):
                 viewid = 1 if imgid < 5 else 2
                 img_name = '{:01d}_{:03d}_{:01d}_{:02d}.png'.format(campid+1, pid+1, viewid, imgid+1)
                 img_path = osp.join(save_dir, img_name)
-                imsave(img_path, img)
+                imageio.imwrite(img_path, img)
                 img_paths.append(img_path)
             return img_paths
 
@@ -187,7 +187,7 @@ class CUHK03(object):
             num_train_pids, num_test_pids = 0, 0
             num_train_imgs, num_test_imgs = 0, 0
             for i, (campid, pid, img_paths) in enumerate(meta_data):
-                
+
                 if [campid, pid] in test_split:
                     for img_path in img_paths:
                         camid = int(osp.basename(img_path).split('_')[2])
@@ -226,7 +226,7 @@ class CUHK03(object):
                 'num_query_pids': num_test_pids, 'num_query_imgs': num_test_imgs,
                 'num_gallery_pids': num_test_pids, 'num_gallery_imgs': num_test_imgs,
             })
-        
+
         write_json(splits_classic_det, self.split_classic_det_json_path)
         write_json(splits_classic_lab, self.split_classic_lab_json_path)
 
