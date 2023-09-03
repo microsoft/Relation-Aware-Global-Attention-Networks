@@ -72,3 +72,37 @@ provided by the bot. You will only need to do this once across all repos using o
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
 For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
 contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+
+小记：
+该环境需要torch0.4.0的环境，但是由于某些原因，环境没有弄成0.4.0。那么可以使用高版本的torch，本人使用的0.4.1。但是bn层会有一些问题（torch0.4.1之后bn层有一定修改，进行跳过即可）
+具体可以参考该issue:
+I also encounter the same problem.
+The PyTorch version I used is 1.6.0.
+To avoid the KeyError: 'bn1.num_batches_tracked', I made some revisions of rga_branches.py:
+
+def load_partial_param(self, state_dict, model_index, model_path):
+	param_dict = torch.load(model_path)
+	for i in state_dict:
+		key = 'layer{}.'.format(model_index)+i
+		**if 'num_batches_tracked' in key:
+			continue**
+		state_dict[i].copy_(param_dict[key])
+	del param_dict
+
+def load_specific_param(self, state_dict, param_name, model_path):
+	param_dict = torch.load(model_path)
+	for i in state_dict:
+		key = param_name + '.' + i
+		**if 'num_batches_tracked' in key:
+			continue**
+		state_dict[i].copy_(param_dict[key])
+	del param_dict
+
+最后本人训练的公开数据集的结果如下：
+cuhk03:
+map:   0.778(0.774)
+rank1:  0.796(0.811)
+market1501：
+map:   0.886（0.884）
+rank1:    0.954（0.961）
+
